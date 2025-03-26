@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-PlaywrightTestSuite" class="navigator-link">
-              <span class="suite-name border-passed">PlaywrightTestSuite</span>
+              <span class="suite-name border-failed">PlaywrightTestSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-PlaywrightTestSuite" class="navigator-link ">
-                    <span>C:\Users\abhis\OneDrive\Desktop\WorkSpace1\PlaywrightFirstProject\src\test\resources\testng.xml</span>
+                    <span>C:\Users\abhis\git\PlaywrightFirstProject\PlaywrightFirstProject\src\test\resources\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-PlaywrightTestSuite" class="hide-methods failed suite-PlaywrightTestSuite"> (hide)</a> <!-- hide-methods failed suite-PlaywrightTestSuite -->
+                      <a href="#" panel-name="suite-PlaywrightTestSuite" class="show-methods failed suite-PlaywrightTestSuite"> (show)</a> <!-- show-methods failed suite-PlaywrightTestSuite -->
+                    </span>
+                    <div class="method-list-content failed suite-PlaywrightTestSuite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-PlaywrightTestSuite" title="tests.DashBoardTest" class="method navigator-link" hash-for-method="testDashboardPageTitle">testDashboardPageTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-PlaywrightTestSuite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -123,6 +137,26 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-PlaywrightTestSuite" class="panel PlaywrightTestSuite">
+          <div class="suite-PlaywrightTestSuite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">tests.DashBoardTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDashboardPageTitle">
+                  </a> <!-- testDashboardPageTitle -->
+                  <span class="method-name">testDashboardPageTitle</span>
+                  <div class="stack-trace">java.lang.AssertionError: Not able to verify page header expected [true] but found [false]
+	at tests.DashBoardTest.testDashboardPageTitle(DashBoardTest.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-PlaywrightTestSuite-class-failed -->
           <div class="suite-PlaywrightTestSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -148,7 +182,7 @@
         </div> <!-- panel PlaywrightTestSuite -->
         <div panel-name="test-xml-PlaywrightTestSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\abhis\OneDrive\Desktop\WorkSpace1\PlaywrightFirstProject\src\test\resources\testng.xml</span>
+            <span class="header-content">C:\Users\abhis\git\PlaywrightFirstProject\PlaywrightFirstProject\src\test\resources\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -158,6 +192,7 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;Login Tests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;tests.LoginTest&quot;/&gt;
+      &lt;class name=&quot;tests.DashBoardTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Login Tests --&gt;
 &lt;/suite&gt; &lt;!-- PlaywrightTestSuite --&gt;
@@ -171,7 +206,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Login Tests (1 class)</span>
+                <span class="test-name">Login Tests (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -197,20 +232,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testInvalidLogin')
 data.setCell(0, 2, 'tests.LoginTest')
-data.setCell(0, 3, 4565);
+data.setCell(0, 3, 4746);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testValidLogin')
-data.setCell(1, 2, 'tests.LoginTest')
-data.setCell(1, 3, 3327);
+data.setCell(1, 1, 'testDashboardPageTitle')
+data.setCell(1, 2, 'tests.DashBoardTest')
+data.setCell(1, 3, 4669);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testValidLogin')
+data.setCell(2, 2, 'tests.LoginTest')
+data.setCell(2, 3, 4393);
 window.suiteTableData['PlaywrightTestSuite']= { tableData: data, tableDiv: 'times-div-PlaywrightTestSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 13 seconds</span>
               <div id="times-div-PlaywrightTestSuite">
               </div> <!-- times-div-PlaywrightTestSuite -->
             </div> <!-- times-div -->
@@ -236,30 +275,61 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">tests.DashBoardTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setupReport</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">setupReport</span>
+                <span class="method-start">191 ms</span>
+              </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">315 ms</span>
+                <span class="method-start">202 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">testInvalidLogin</span>
-                <span class="method-start">8396 ms</span>
+                <span class="method-start">8876 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testValidLogin</span>
-                <span class="method-start">12963 ms</span>
+                <span class="method-start">13626 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">16292 ms</span>
+                <span class="method-start">18022 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.DashBoardTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">18388 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testDashboardPageTitle</span>
+                <span class="method-start">19548 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">24222 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">flushReport</span>
-                <span class="method-start">16811 ms</span>
+                <span class="method-start">24571 ms</span>
+              </div> <!-- configuration-suite after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite after">
+                <span class="method-name">flushReport</span>
+                <span class="method-start">24879 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

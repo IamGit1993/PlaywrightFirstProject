@@ -1,5 +1,7 @@
 helpers\ScreenshotHelper.class
+pages\DashBoardPage.class
 pages\LoginPage.class
+tests\DashBoardTest.class
 reports\ExtentManager.class
 utils\ConfigReader.class
 helpers\PlaywrightFactory.class

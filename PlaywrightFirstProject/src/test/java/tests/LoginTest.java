@@ -3,6 +3,8 @@ package tests;
 import com.microsoft.playwright.Page;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
+import pages.DashBoardPage;
 import pages.LoginPage;
 import helpers.PlaywrightFactory;
 import helpers.ScreenshotHelper;
@@ -12,20 +14,26 @@ import com.aventstack.extentreports.ExtentTest;
 import reports.ExtentManager;
 
 public class LoginTest {
-	private Page page;
-	private LoginPage loginPage;
-	private ExtentReports extent;
-	private ExtentTest test;
+	private Page page; // Playwright page instance to interact with the browser
+	private LoginPage loginPage; // LoginPage object to perform login actions
+	private ExtentReports extent; // ExtentReports instance for reporting
+	private ExtentTest test; // ExtentTest instance for logging test steps
 
+	/**
+	 * Initializes the Extent Reports instance before the test suite starts.
+	 */
 	@BeforeSuite
 	public void setupReport() {
-		extent = ExtentManager.getReportInstance();
+	    extent = ExtentManager.getReportInstance(); // Fetches the ExtentReports instance
 	}
 
+	/**
+	 * Sets up the browser and initializes page objects before any test class runs.
+	 */
 	@BeforeClass
 	public void setup() {
-		page = PlaywrightFactory.initBrowser();
-		loginPage = new LoginPage(page);
+	    page = PlaywrightFactory.initBrowser(); // Launches the Playwright browser instance
+	    loginPage = new LoginPage(page); // Initializes the login page object
 	}
 
 	@Test
@@ -104,13 +112,19 @@ public class LoginTest {
 	    }
 	}
 
+	/**
+	 * Closes the browser session after all tests in the class have executed.
+	 */
 	@AfterClass
 	public void tearDown() {
-		PlaywrightFactory.closeBrowser();
+	    PlaywrightFactory.closeBrowser(); // Closes the Playwright browser instance
 	}
 
+	/**
+	 * Flushes the Extent Reports data to generate the final report after the test suite execution.
+	 */
 	@AfterSuite
 	public void flushReport() {
-		extent.flush();
+	    extent.flush(); // Writes the test execution data to the Extent Report
 	}
 }
