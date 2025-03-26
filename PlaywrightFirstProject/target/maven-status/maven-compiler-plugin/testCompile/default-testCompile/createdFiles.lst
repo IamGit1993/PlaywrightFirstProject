@@ -1,0 +1,6 @@
+helpers\ScreenshotHelper.class
+pages\LoginPage.class
+reports\ExtentManager.class
+utils\ConfigReader.class
+helpers\PlaywrightFactory.class
+tests\LoginTest.class
